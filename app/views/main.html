@@ -1,7 +1,23 @@
-<h1>
+<h1 class="text-center">
   Web Audio API Simple demo
 </h1>
 <div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+      הכנות
+    </div>
+    <div class="panel-body">
+      <p>
+        var context = new (window.AudioContext || window.webkitAudioContext)();<br>
+        var oscillator = context.createOscillator();<br>
+        var biquadFilter = context.createBiquadFilter();<br>
+        biquadFilter.connect(context.destination);<br>
+        <br>
+        oscillator.start();
+      </p>
+    </div>
+  </div>
+
   <div class="panel panel-default">
     <div class="panel-heading text-center">
       אוסילטור
@@ -24,6 +40,12 @@
         </button>
       </div>
     </div>
+    <div class="panel-footer">
+      <p>
+        oscillator.type = {{waveType}};<br>
+        oscillator.frequency.value = {{frequency}};
+      </p>
+    </div>
   </div>
 
 
@@ -34,6 +56,15 @@
     <div class="panel-body">
       <input type="range" ng-model="filterFrequency" min="0" max="2000"/>
     </div>
+    <div class="panel-footer">
+      <p>
+        biquadFilter.type = "lowshelf";<br>
+        biquadFilter.frequency.value = {{filterFrequency}};<br>
+        biquadFilter.gain.value = 25;
+      </p>
+    </div>
   </div>
+
+
 </div>
 
