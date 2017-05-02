@@ -1,0 +1,39 @@
+<h1>
+  Web Audio API Simple demo
+</h1>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+      אוסילטור
+    </div>
+    <div class="panel-body text-center">
+      <div>
+        סוג גל
+        <select ng-model="waveType">
+          <option ng-repeat="wave in waveTypes" value="{{wave}}">{{wave}}</option>
+        </select>
+      </div>
+      <div>
+        <span> {{frequency}}Hz</span>
+        <span>        תדר</span>
+        <input type="range" ng-model="frequency" min="440" max="880"/>
+      </div>
+      <div>
+        <button ng-click="playButtonPressed()">
+          {{playing?"Stop":"Play"}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+      פילטר
+    </div>
+    <div class="panel-body">
+      <input type="range" ng-model="filterFrequency" min="0" max="2000"/>
+    </div>
+  </div>
+</div>
+
